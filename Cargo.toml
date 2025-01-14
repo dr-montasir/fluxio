@@ -1,0 +1,14 @@
+[package]
+name = "fluxio"
+version = "0.0.0"
+authors = ["Montasir Mirghani <contact@montasir.me>"]
+edition = "2021"
+description = "fluxio"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/dr-montasir/fluxio"
+repository = "https://github.com/dr-montasir/fluxio"
+readme = "README.md"
+keywords = ["web"]
+categories = ["web-programming"]
+
+[dependencies]
