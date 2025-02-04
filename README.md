@@ -10,7 +10,7 @@
   <h1>FLUXIO</h1>
 </div>
 
-Fluxio is a wrapper around `hyper` version 0.14.19, designed specifically for use within the Fluxor project. This version (0.3.0) serves as an evolution of previous iterations and includes modifications tailored to the specific needs of Fluxor projects. Future versions may include further enhancements and optimizations.
+Fluxio is a wrapper around `hyper` version 0.14.19, designed specifically for use within the Fluxor project. This version (0.4.0) serves as an evolution of previous iterations and includes modifications tailored to the specific needs of Fluxor projects. Future versions may include further enhancements and optimizations.
 
 ## About
 
@@ -22,7 +22,7 @@ Fluxio has been modified from the original `hyper` source code, specifically cha
 
 ## Future Developments
 
-As a continuing version (0.3.0), Fluxio is expected to evolve with subsequent updates. Future versions will likely include additional functionality and optimizations tailored to the needs of the Fluxor project.
+As a continuing version (0.4.0), Fluxio is expected to evolve with subsequent updates. Future versions will likely include additional functionality and optimizations tailored to the needs of the Fluxor project.
 
 ## Contributions
 

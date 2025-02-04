@@ -1,6 +1,6 @@
 [package]
 name = "fluxio"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "fluxio"
@@ -12,13 +12,19 @@ keywords = ["web", "http", "fluxio", "io", "hyper"]
 categories = ["network-programming", "web-programming::http-client", "web-programming::http-server"]
 
 include = [
-  "Cargo.toml",
-  "LICENSE",
-  "src/**/*",
-  #"build.rs",
+  "Cargo.toml",      # Include the Cargo.toml file
+  "LICENSE",         # Include the LICENSE file
+  "src/**/*",        # Include all files in the src directory and its subdirectories
 ]
 
-exclude = ["logo.svg"]
+exclude = [
+  "Cargo.lock",      # Exclude the Cargo.lock file
+  "target/**",       # Exclude all files under the target directory
+  "logo.svg",        # Exclude the logo.svg file
+  "examples/**",     # Exclude all files in the examples directory
+  "tests/**",        # Exclude all files in the tests directory
+  "benches/**",      # Exclude all files in the benches directory
+]
 
 [dependencies]
 bytes = "1"

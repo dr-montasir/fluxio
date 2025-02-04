@@ -21,13 +21,14 @@ pub use http_body::SizeHint;
 
 pub use self::aggregate::aggregate;
 // pub use self::body::{Body, Sender};
+pub use self::body::{Body, Sender};
 pub(crate) use self::length::DecodedLength;
-pub use self::payload::{Body, Sender}; // Define these directly in mod.rs if they belong to 'payload'
 pub use self::to_bytes::to_bytes;
 
 mod aggregate;
+#[allow(clippy::module_inception)]
+mod body;
 mod length;
-mod payload; // Renamed module from body to payload
 mod to_bytes;
 
 /// An optimization to try to take a full body if immediately available.
@@ -39,7 +40,7 @@ pub(crate) fn take_full_data<T: HttpBody + 'static>(body: &mut T) -> Option<T::D
 
     // This static type check can be optimized at compile-time.
     if TypeId::of::<T>() == TypeId::of::<Body>() {
-        let mut full = (payload as &mut dyn Any)
+        let mut full = (body as &mut dyn Any)
             .downcast_mut::<Body>()
             .expect("must be Body")
             .take_full_data();

@@ -55,7 +55,7 @@ macro_rules! maybe_panic {
         if cfg!(debug_assertions) {
             panic!("{:?}", _err);
         } else {
-            error!("Internal Hyper error, please report {:?}", _err);
+            error!("Internal Fluxio error, please report {:?}", _err);
             return Err(Parse::Internal)
         }
     })
