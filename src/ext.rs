@@ -1,7 +1,7 @@
 //! HTTP extensions.
 
 use bytes::Bytes;
-// use http::header::HeaderName;
+pub use http::header::HeaderName;
 #[cfg(feature = "http1")]
 use http::header::{IntoHeaderName, ValueIter};
 use http::HeaderMap;
