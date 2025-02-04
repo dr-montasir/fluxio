@@ -17,6 +17,7 @@ impl From<Option<u64>> for DecodedLength {
 #[cfg(any(feature = "http1", feature = "http2", test))]
 const MAX_LEN: u64 = std::u64::MAX - 2;
 
+#[allow(clippy::legacy_numeric_constants)]
 impl DecodedLength {
     pub(crate) const CLOSE_DELIMITED: DecodedLength = DecodedLength(::std::u64::MAX);
     pub(crate) const CHUNKED: DecodedLength = DecodedLength(::std::u64::MAX - 1);

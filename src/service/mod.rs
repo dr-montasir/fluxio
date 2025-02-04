@@ -1,6 +1,6 @@
 //! Asynchronous Services
 //!
-//! A [`Service`](Service) is a trait representing an asynchronous
+//! A `Service` is a trait representing an asynchronous
 //! function of a request to a response. It's similar to
 //! `async fn(Request) -> Result<Response, Error>`.
 //!
@@ -21,13 +21,13 @@
 //! to a single connection. It defines how to respond to **all** requests that
 //! connection will receive.
 //!
-//! The helper [`service_fn`](service_fn) should be sufficient for most cases, but
+//! The helper `service_fn` service_fn should be sufficient for most cases, but
 //! if you need to implement `Service` for a type manually, you can follow the example
 //! in `service_struct_impl.rs`.
 //!
 //! # MakeService
 //!
-//! Since a `Service` is bound to a single connection, a [`Server`](crate::Server)
+//! Since a `Service` is bound to a single connection, a `Server` crate::Server
 //! needs a way to make them as it accepts connections. This is what a
 //! `MakeService` does.
 //!

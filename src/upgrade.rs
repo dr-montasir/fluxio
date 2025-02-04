@@ -17,7 +17,7 @@
 //!
 //! # Client
 //!
-//! Sending an HTTP upgrade from the [`client`](super::client) involves setting
+//! Sending an HTTP upgrade from the `client` super::client involves setting
 //! either the appropriate method, if wanting to `CONNECT`, or headers such as
 //! `Upgrade` and `Connection`, on the `http::Request`. Once receiving the
 //! `http::Response` back, you must check for the specific information that the
@@ -73,7 +73,7 @@ pub struct OnUpgrade {
     rx: Option<oneshot::Receiver<crate::Result<Upgraded>>>,
 }
 
-/// The deconstructed parts of an [`Upgraded`](Upgraded) type.
+/// The deconstructed parts of an `Upgraded` type.
 ///
 /// Includes the original IO type, and a read buffer of bytes that the
 /// HTTP state machine may have already read before completing an upgrade.
@@ -90,7 +90,7 @@ pub struct Parts<T> {
     /// You will want to check for any existing bytes if you plan to continue
     /// communicating on the IO object.
     pub read_buf: Bytes,
-    _inner: (),
+    // _inner: (),
 }
 
 /// Gets a pending HTTP upgrade from this message.
@@ -139,7 +139,7 @@ impl Upgraded {
             Ok(t) => Ok(Parts {
                 io: *t,
                 read_buf: buf,
-                _inner: (),
+                // _inner: (),
             }),
             Err(io) => Err(Upgraded {
                 io: Rewind::new_buffered(io, buf),

@@ -57,7 +57,6 @@
 //! - `stream`: Provides `futures::Stream` capabilities.
 //!
 //! [feature flags]: https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section
-
 #[doc(hidden)]
 pub use http;
 

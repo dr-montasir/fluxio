@@ -74,8 +74,8 @@ pub(super) enum Parse {
     Header(Header),
     TooLarge,
     Status,
-    #[cfg_attr(debug_assertions, allow(unused))]
-    Internal,
+    // #[cfg_attr(debug_assertions, allow(unused))]
+    // Internal,
 }
 
 #[derive(Debug)]
@@ -225,7 +225,7 @@ impl Error {
     pub(crate) fn find_source<E: StdError + 'static>(&self) -> Option<&E> {
         let mut cause = self.source();
         while let Some(err) = cause {
-            if let Some(ref typed) = err.downcast_ref() {
+            if let Some(typed) = err.downcast_ref() {
                 return Some(typed);
             }
             cause = err.source();
@@ -424,9 +424,9 @@ impl Error {
             }
             Kind::Parse(Parse::TooLarge) => "message head is too large",
             Kind::Parse(Parse::Status) => "invalid HTTP status-code parsed",
-            Kind::Parse(Parse::Internal) => {
-                "internal error inside Hyper and/or its dependencies, please report"
-            }
+            // Kind::Parse(Parse::Internal) => {
+            //     "internal error inside fluxio and/or its dependencies, please report"
+            // }
             Kind::IncompleteMessage => "connection closed before message completed",
             #[cfg(feature = "http1")]
             Kind::UnexpectedMessage => "received unexpected message from connection",

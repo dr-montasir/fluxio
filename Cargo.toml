@@ -1,6 +1,6 @@
 [package]
 name = "fluxio"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "fluxio"
@@ -114,12 +114,12 @@ ffi = ["libc"]
 nightly = []
 __internal_happy_eyeballs_tests = []
 
-[package.metadata.docs.rs]
-features = ["ffi", "full"]
-rustdoc-args = ["--cfg", "docsrs", "--cfg", "hyper_unstable_ffi"]
+#[package.metadata.docs.rs]
+#features = ["ffi", "full"]
+#rustdoc-args = ["--cfg", "docsrs", "--cfg", "fluxio_unstable_ffi"]
 
-[package.metadata.playground]
-features = ["full"]
+#[package.metadata.playground]
+#features = ["full"]
 
 [profile.release]
 codegen-units = 1
@@ -130,13 +130,13 @@ codegen-units = 1
 incremental = false
 
 [[example]]
-name = "client"
-path = "examples/client.rs"
+name = "client_json"
+path = "examples/client_json.rs"
 required-features = ["full"]
 
 [[example]]
-name = "client_json"
-path = "examples/client_json.rs"
+name = "client"
+path = "examples/client.rs"
 required-features = ["full"]
 
 [[example]]
@@ -203,7 +203,6 @@ required-features = ["full"]
 name = "upgrades"
 path = "examples/upgrades.rs"
 required-features = ["full"]
-
 
 [[example]]
 name = "web_api"

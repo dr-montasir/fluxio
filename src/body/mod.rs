@@ -1,16 +1,16 @@
 //! Streaming bodies for Requests and Responses
 //!
-//! For both [Clients](crate::client) and [Servers](crate::server), requests and
+//! For both Clients crate::client and Servers crate::server, requests and
 //! responses use streaming bodies, instead of complete buffering. This
 //! allows applications to not use memory they don't need, and allows exerting
 //! back-pressure on connections by only reading when asked.
 //!
 //! There are two pieces to this in fluxio:
 //!
-//! - **The [`HttpBody`](HttpBody) trait** describes all possible bodies.
+//! - **The `HttpBody` HttpBody trait** describes all possible bodies.
 //!   fluxio allows any body type that implements `HttpBody`, allowing
 //!   applications to have fine-grained control over their streaming.
-//! - **The [`Body`](Body) concrete type**, which is an implementation of
+//! - **The `Body` Body concrete type**, which is an implementation of
 //!   `HttpBody`, and returned by fluxio as a "receive stream" (so, for server
 //!   requests and client responses). It is also a decent default implementation
 //!   if you don't have very custom needs of your send streams.
@@ -20,13 +20,14 @@ pub use http_body::Body as HttpBody;
 pub use http_body::SizeHint;
 
 pub use self::aggregate::aggregate;
-pub use self::body::{Body, Sender};
+// pub use self::body::{Body, Sender};
 pub(crate) use self::length::DecodedLength;
+pub use self::payload::{Body, Sender}; // Define these directly in mod.rs if they belong to 'payload'
 pub use self::to_bytes::to_bytes;
 
 mod aggregate;
-mod body;
 mod length;
+mod payload; // Renamed module from body to payload
 mod to_bytes;
 
 /// An optimization to try to take a full body if immediately available.
@@ -38,7 +39,7 @@ pub(crate) fn take_full_data<T: HttpBody + 'static>(body: &mut T) -> Option<T::D
 
     // This static type check can be optimized at compile-time.
     if TypeId::of::<T>() == TypeId::of::<Body>() {
-        let mut full = (body as &mut dyn Any)
+        let mut full = (payload as &mut dyn Any)
             .downcast_mut::<Body>()
             .expect("must be Body")
             .take_full_data();
