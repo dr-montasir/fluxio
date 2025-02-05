@@ -74,9 +74,12 @@ pub(super) enum Parse {
     Header(Header),
     TooLarge,
     Status,
-    // #[cfg_attr(debug_assertions, allow(unused))]
-    // Internal,
+    #[cfg_attr(debug_assertions, allow(unused))]
+    Internal,
 }
+
+#[allow(unused)]
+pub const PARSE_RESULT: Parse = Parse::Internal; // Internal Example usage
 
 #[derive(Debug)]
 pub(super) enum Header {
@@ -424,9 +427,9 @@ impl Error {
             }
             Kind::Parse(Parse::TooLarge) => "message head is too large",
             Kind::Parse(Parse::Status) => "invalid HTTP status-code parsed",
-            // Kind::Parse(Parse::Internal) => {
-            //     "internal error inside fluxio and/or its dependencies, please report"
-            // }
+            Kind::Parse(Parse::Internal) => {
+                "internal error inside fluxio and/or its dependencies, please report"
+            }
             Kind::IncompleteMessage => "connection closed before message completed",
             #[cfg(feature = "http1")]
             Kind::UnexpectedMessage => "received unexpected message from connection",
