@@ -1,6 +1,6 @@
 [package]
 name = "fluxio"
-version = "0.5.0"
+version = "0.5.1"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "fluxio"
@@ -63,7 +63,7 @@ tokio = { version = "1", features = [
 tokio-test = "0.4"
 tokio-util = { version = "0.7", features = ["codec"] }
 tower = { version = "0.4", features = ["make", "util"] }
-url = "2.2"
+url = "2.5.8"
 
 [target.'cfg(any(target_os = "linux", target_os = "macos"))'.dev-dependencies]
 pnet_datalink = "0.27.2"

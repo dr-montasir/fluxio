@@ -1,3 +1,8 @@
+### v0.5.1
+
+- Updated Modules:
+    - url (v2.2 => v2.5.8).
+
 ### v0.5.0
 
 - Included Kind::Parse(Parse::Internal) in src/error.rs.
