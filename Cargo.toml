@@ -1,6 +1,6 @@
 [package]
 name = "fluxio"
-version = "0.5.1"
+version = "0.5.2"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "fluxio"
@@ -20,32 +20,32 @@ include = [
 exclude = ["logo.svg"]
 
 [dependencies]
-bytes = "1"
-futures-core = { version = "0.3", default-features = false }
-futures-channel = "0.3"
-futures-util = { version = "0.3", default-features = false }
-http = "0.2"
-http-body = "0.4"
+bytes = "1.11.0"
+futures-core = { version = "0.3.31", default-features = false }
+futures-channel = "0.3.31"
+futures-util = { version = "0.3.31", default-features = false }
+http = "0.2.12"
+http-body = "0.4.6"
 httpdate = "1.0"
-httparse = "1.6"
-h2 = { version = "0.3.9", optional = true }
-itoa = "1"
+httparse = "1.10.1"
+h2 = { version = "0.4.13", optional = true }
+itoa = "1.0.17"
 tracing = { version = "0.1", default-features = false, features = ["std"] }
 pin-project-lite = "0.2.4"
 tower-service = "0.3"
-tokio = { version = "1", features = ["sync"] }
+tokio = { version = "1.49.0", features = ["sync"] }
 want = "0.3"
 
 # Optional
 
 libc = { version = "0.2", optional = true }
-socket2 = { version = "0.4", optional = true }
+socket2 = { version = "0.6.2", optional = true }
 
 [dev-dependencies]
 futures-util = { version = "0.3", default-features = false, features = ["alloc"] }
 matches = "0.1"
 num_cpus = "1.0"
-pretty_env_logger = "0.4"
+pretty_env_logger = "0.5.0"
 spmc = "0.3"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
@@ -62,11 +62,11 @@ tokio = { version = "1", features = [
 ] }
 tokio-test = "0.4"
 tokio-util = { version = "0.7", features = ["codec"] }
-tower = { version = "0.4", features = ["make", "util"] }
+tower = { version = "0.5.3", features = ["make", "util"] }
 url = "2.5.8"
 
 [target.'cfg(any(target_os = "linux", target_os = "macos"))'.dev-dependencies]
-pnet_datalink = "0.27.2"
+pnet_datalink = "0.35.0"
 
 [features]
 # Nothing by default
@@ -112,6 +112,7 @@ ffi = ["libc"]
 # internal features used in CI
 nightly = []
 __internal_happy_eyeballs_tests = []
+h2 = ["dep:h2"]
 
 #[package.metadata.docs.rs]
 #features = ["ffi", "full"]
