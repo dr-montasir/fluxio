@@ -11,12 +11,6 @@ readme = "README.md"
 keywords = ["web", "http", "fluxio", "io", "hyper"]
 categories = ["network-programming", "web-programming::http-client", "web-programming::http-server"]
 
-include = [
-  "Cargo.toml",
-  "LICENSE",
-  "src/**/*"
-]
-
 exclude = ["logo.svg"]
 
 [dependencies]
