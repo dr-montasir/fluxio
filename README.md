@@ -5,62 +5,29 @@
   </a>
   <br><br>
 
-[<img alt="github" src="https://img.shields.io/badge/github-dr%20montasir%20/%20fluxio-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="22">](https://github.com/dr-montasir/fluxio)[<img alt="crates.io" src="https://img.shields.io/crates/v/fluxio.svg?style=for-the-badge&color=fc8d62&logo=rust" height="22">](https://crates.io/crates/fluxio)[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-fluxio-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="22">](https://docs.rs/fluxio)[<img alt="license" src="https://img.shields.io/badge/license-apache_2.0-4a98f7.svg?style=for-the-badge&labelColor=555555&logo=apache" height="22">](https://choosealicense.com/licenses/apache-2.0)
+[<img alt="github" src="https://img.shields.io/badge/github-dr%20montasir%20/%20fluxio-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="22">](https://github.com/dr-montasir/fluxio)[<img alt="crates.io" src="https://img.shields.io/crates/v/fluxio.svg?style=for-the-badge&color=fc8d62&logo=rust" height="22">](https://crates.io/crates/fluxio)[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-fluxio-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="22">](https://docs.rs/fluxio)
 
-  <h1>FLUXIO</h1>
+  <h1>FLUXIO: Sunset (v0.5.3)</h1>
 </div>
 
-Fluxio is a wrapper around `hyper` version 0.14.19, designed specifically for use within the Fluxor project. This version `(0.5.0)` serves as an evolution of previous iterations and includes modifications tailored to the specific needs of Fluxor projects. Future versions may include further enhancements and optimizations.
+## Project Status: Sunset
+Fluxio version 0.5.3 is the final release of this crate. 
 
-## About
+The Fluxor ecosystem is transitioning away from internal hyper and tokio dependencies. Networking and runtime foundations are migrated to a specialized architecture.
 
-Fluxio is built on top of `hyper` 0.14.19, a powerful HTTP implementation in Rust. By using Fluxio, developers can leverage the foundational capabilities provided by `hyper` while integrating them seamlessly into the Fluxor ecosystem.
+## Future Development: Webio & Crator
+Functionality previously handled by Fluxio is now integrated into the following crates:
 
-## Modifications
+*   **[Fluxor](https://crates.io)**: The main ecosystem engine.
+*   **[Webio](https://crates.io)**: The specialized web utility layer.
+*   **[Crator](https://crates.io)**: The core runner and hardware-abstraction interface.
 
-Fluxio has been modified from the original `hyper` source code, specifically changing references from `hyper` to `fluxio` throughout the codebase. This helps in clearly distinguishing it as a unique component tailored for the Fluxor project.
+## Rationale
+Fluxio served as a modified wrapper around hyper 0.14. Higher performance and tighter integration within the Fluxor stack require a transition to Webio and Crator. This shift moves development beyond generic wrappers toward tools optimized for specific ecosystem goals.
 
-## Future Developments
+---
 
-As a continuing version `(0.5.0)`, Fluxio is expected to evolve with subsequent updates. Future versions will likely include additional functionality and optimizations tailored to the needs of the Fluxor project.
+## Legacy License
+This project was based on hyper 0.14.19. Previous versions remain available on Crates.io under the original MIT license terms provided by Sean McArthur.
 
-## Contributions
-
-Contributions to Fluxio are welcome! Please ensure that any contributions adhere to the original licensing terms of `hyper`.
-
-## License
-
-This project is based on `hyper` 0.14.19, which is licensed under the following terms:
-
-```text
-Copyright (c) 2014-2021 Sean McArthur
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
-
-## Acknowledgments
-
-Special thanks to Sean McArthur for the original `hyper` implementation, which serves as the foundation for Fluxio.
-
-## Contact
-
-If you have any questions or feedback, feel free to reach out:
-
-- [dr-montasir](https://crates.io/users/dr-montasir)
-- [GitHub Repository](https://github.com/dr-montasir/fluxio)
+**Contact:** [dr-montasir](https://crates.io/users/dr-montasir)
